@@ -10,3 +10,10 @@ npm install @nestjs/common@7.6.17 @nestjs/core@7.6.17 @nestjs/platform-express@7
 ```bash
 tsc --init
 ```
+
+## 03. Write Module and Controller
+
+## 04. Start the app
+```bash
+npx ts-node-dev src/main.ts
+```
