@@ -35,3 +35,9 @@ nest generate controller messages/messages --flat
 - @Query()
 - @Body()
 - @Headers()
+
+### Setting up Automatic Validation
+Step 1. Tell nest to use global validation
+Step 2. Create a class that describes the different properties that the request body should have - Data Transfer Object[DTO]
+Step 3. Add validation rules to the class
+Step 4. Apply that class to the request handler
