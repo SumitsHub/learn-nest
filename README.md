@@ -28,3 +28,10 @@ nest generate controller messages/messages --flat
 - Install REST Client extension by "Huachao Mao"
 - Create file named 'requests.http'
 - Add endpoints to the file and test using 'Send request' button provided by the extension
+
+
+### Parameter decorators
+- @Param('id')
+- @Query()
+- @Body()
+- @Headers()
