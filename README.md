@@ -7,3 +7,8 @@ npm install -g @nestjs/cli
 ```bash
 nest new [app-name]
 ```
+
+### Generate module using nest cli
+```bash
+nest generate module [module-name]
+```
