@@ -12,3 +12,13 @@ nest new [app-name]
 ```bash
 nest generate module [module-name]
 ```
+
+### Generate controller using nest cli
+```bash
+nest generate controller [controller-file-path/controller-class-name] [--flat]
+```
+- flat: don't create extra folder called 'controllers'
+ex:
+```bash
+nest generate controller messages/messages --flat
+```
