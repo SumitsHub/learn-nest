@@ -47,3 +47,13 @@ Step 4. Apply that class to the request handler
 - Service - A class containing business logic
 - Repository - A class containing storage-related logic
 - Usually both will contain methods with same name
+
+
+## Inversion of Control Principle
+Classes should not create instances of its dependencies on its own
+
+## DEPENDENCY INJECTION(DI)
+Nest DI Container stores:
+- List of classes and their dependencies
+- List of instances created
+Use the '@Injectable' decorator on each class and them to the modules list of 'providers'
