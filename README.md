@@ -22,3 +22,9 @@ ex:
 ```bash
 nest generate controller messages/messages --flat
 ```
+
+
+### Calling REST api using REST Client VSCode extension
+- Install REST Client extension by "Huachao Mao"
+- Create file named 'requests.http'
+- Add endpoints to the file and test using 'Send request' button provided by the extension
