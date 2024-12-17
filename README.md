@@ -11,6 +11,15 @@ nest new [app-name]
 ### Generate module using nest cli
 ```bash
 nest generate module [module-name]
+
+OR
+
+nest g module [module-name]
+```
+
+### Generate service using nest cli
+```bash
+nest g service [service-name]
 ```
 
 ### Generate controller using nest cli
@@ -57,3 +66,4 @@ Nest DI Container stores:
 - List of classes and their dependencies
 - List of instances created
 Use the '@Injectable' decorator on each class and them to the modules list of 'providers'
+Note: Useful while testing of the application, we can use fake db service for testing instead of original one
