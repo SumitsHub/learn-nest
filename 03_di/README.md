@@ -4,3 +4,9 @@
 >> Generate services - cpu, disk, power
 
 >> Generate controller - computer
+
+
+### DI Between Modules (Power Module and CPU Module)
+1. Add PowerService to the PowerModule's list of 'exports'
+2. Import the PowerModule into the CPUModule -> list of 'imports'
+3. Define the constructor method on CPUService and add PowerService to it
