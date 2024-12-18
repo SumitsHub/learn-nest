@@ -19,4 +19,31 @@ export class UsersService {
     // saving entity instance - this will trigger the hooks
     return this.repo.save(user);
   }
+
+  findOne(id: number) {
+    const user = this.repo.findOne({ where: { id } });
+    return user;
+  }
+
+  find(email: string) {
+    return this.repo.find({ where: { email } });
+  }
+
+  async update(id: number, attrs: Partial<User>) {
+    const user = await this.findOne(id);
+
+    if (!user) throw new Error('User not found!');
+
+    Object.assign(user, attrs);
+
+    return this.repo.save(user);
+  }
+
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) throw new Error('User not found!');
+    //* delete() vs remove()
+    // this.repo.delete(id); // won't trigger any hook
+    this.repo.remove(user); // will trigger associated hook
+  }
 }
