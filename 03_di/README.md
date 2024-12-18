@@ -28,3 +28,9 @@ docker run -p 3000:3000 --name nest-container nest-app
 ```
 
 Your app will now be available at http://localhost:3000
+
+
+### Rancher Desktop
+- Free(open-source) Alternative to Docker
+- Container Management and Kubernetes on the Desktop
+- Download - [link](https://rancherdesktop.io/)
