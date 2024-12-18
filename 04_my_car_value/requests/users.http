@@ -15,8 +15,16 @@ GET http://localhost:3000/auth/2
 
 ### Find all users with given email
 
-GET http://localhost:3000/auth?email=abc@xyz.com
+GET http://localhost:3000/auth?email=akshaya@gmail.com
 
 
 ### Delete user with id
 DELETE http://localhost:3000/auth/3
+
+### Update user
+PATCH http://localhost:3000/auth/1
+Content-Type: application/json
+
+{
+    "email": "akshaya@gmail.com"
+}
