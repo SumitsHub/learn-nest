@@ -84,3 +84,10 @@ npm install @nestjs/typeorm typeorm sqlite3
 ```
 
 NOTE: In this app, initially we will use TypeORM with SQLite then will move to Postgres
+
+
+### Creating an Entity
+- Create an entity file, and create a class in it that lists all the properties that your entity will have
+- Connect the entity to its parent module. This creates a repository
+- Connect the entity to the root connection (in app module)
+NOTE: by convention we use 'User' as classname for 'User' entity, we can name 'UserEntity' as well like we do for service, controller
