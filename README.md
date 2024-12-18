@@ -91,3 +91,12 @@ NOTE: In this app, initially we will use TypeORM with SQLite then will move to P
 - Connect the entity to its parent module. This creates a repository
 - Connect the entity to the root connection (in app module)
 NOTE: by convention we use 'User' as classname for 'User' entity, we can name 'UserEntity' as well like we do for service, controller
+
+
+### View sqlite db in VSCode
+- Install SQLite extension
+- 'Ctr+Shift+P' to open command pallette
+- Search for "sqlite: Open Database"
+- Select the db file
+- 'SQLITE EXPLORER' section will get added in left side
+
