@@ -67,3 +67,20 @@ Nest DI Container stores:
 - List of instances created
 Use the '@Injectable' decorator on each class and them to the modules list of 'providers'
 Note: Useful while testing of the application, we can use fake db service for testing instead of original one
+
+
+## 04_my_car_value
+Topics covered under this app
+
+### ORM with Nest
+- Nest Supports TypeORM & Mongoose
+- TypeORM - Supports SQL & NoSQL both - SQLite, Postgres, MySQL, MongoDB
+- Mongoose - Supports only MongoDB
+
+### Installing packages
+
+```bash
+npm install @nestjs/typeorm typeorm sqlite3
+```
+
+NOTE: In this app, initially we will use TypeORM with SQLite then will move to Postgres
