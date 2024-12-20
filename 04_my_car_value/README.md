@@ -17,3 +17,10 @@ class CustomInterceptor {
   // 'next' - Kind of reference to the request handler in our controller [Observable (rxjs)]
 }
 ```
+
+
+### Session management with Cookie
+- Install packages
+```bash
+npm install cookie-session @types/cookie-session
+```
