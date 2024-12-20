@@ -24,3 +24,10 @@ class CustomInterceptor {
 ```bash
 npm install cookie-session @types/cookie-session
 ```
+
+
+### Setting session
+- use @Session decorator from @nestjs/common to extract session value in controller
+- set value as setting value to normal JS object
+- this will send Set-Cookie header as part of response headers
+- NOTE: if you are setting same value again then this won't set it again i.e. it won't send Set-Cookie header again
