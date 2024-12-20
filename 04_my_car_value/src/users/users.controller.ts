@@ -38,6 +38,11 @@ export class UsersController {
     return user;
   }
 
+  @Get('/whoami')
+  whoAmI(@Session() session: any) {
+    return this.userService.findOne(session.userId);
+  }
+
   @Post('/signin')
   async signin(@Body() body: CreateUserDto, @Session() session: any) {
     // console.log('signin', body);
