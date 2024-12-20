@@ -31,3 +31,7 @@ npm install cookie-session @types/cookie-session
 - set value as setting value to normal JS object
 - this will send Set-Cookie header as part of response headers
 - NOTE: if you are setting same value again then this won't set it again i.e. it won't send Set-Cookie header again
+
+### CurrenUser Parameter Decorator
+- Param decorator exist outside of the DI system, so we can't get an UserService instance directly
+- Controller, Service, Repository are part of the DI

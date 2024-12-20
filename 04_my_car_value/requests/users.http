@@ -21,6 +21,9 @@ content-type: application/json
 ### Get the currently signed in user
 GET http://localhost:3000/auth/whoami
 
+### Get the currently signed in user - custom decorator
+GET http://localhost:3000/auth/whoami2
+
 ### Sign out user
 POST http://localhost:3000/auth/signout
 
