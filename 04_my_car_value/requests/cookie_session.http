@@ -1,0 +1,6 @@
+### Set cookie
+GET http://localhost:3000/auth/session/colors/green
+
+
+### Get cookie
+GET http://localhost:3000/auth/session/colors

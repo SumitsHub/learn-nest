@@ -10,6 +10,7 @@ import {
   Query,
   UseInterceptors,
   ClassSerializerInterceptor,
+  Session,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
@@ -64,5 +65,16 @@ export class UsersController {
   @Patch('/:id')
   updateUser(@Param('id') id: string, @Body() body: UpdateUserDto) {
     return this.userService.update(+id, body);
+  }
+
+  // Routes to test cookie
+  @Get('/session/colors/:color')
+  setColor(@Param('color') color: string, @Session() session: any) {
+    session.color = color; // setting color property to cookie
+  }
+
+  @Get('/session/colors')
+  getColor(@Session() session: any) {
+    return session.color;
   }
 }
