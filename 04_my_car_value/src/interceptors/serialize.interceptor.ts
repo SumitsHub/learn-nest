@@ -34,7 +34,7 @@ export class SerializeInterceptor implements NestInterceptor {
         // Run something before the response is sent out
         console.log('I am running before response is sent out', data);
         return plainToInstance(this.dto, data, {
-          excludeExtraneousValues: true,
+          excludeExtraneousValues: true, //* IMP to exclude properties marked by @Exclude()
         });
       }),
     );
