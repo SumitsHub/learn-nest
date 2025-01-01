@@ -11,10 +11,19 @@ describe('AuthService', () => {
 
   beforeEach(async () => {
     // create a fake copy of the UsersService
+    let users: User[] = [];
     fakeUsersService = {
-      find: () => Promise.resolve([]),
-      create: (email: string, password: string) =>
-        Promise.resolve({ id: 1, email, password } as User),
+      find: (email: string) =>
+        Promise.resolve(users.filter((usr) => usr.email === email)),
+      create: (email: string, password: string) => {
+        let user = {
+          id: Math.floor(Math.random() * 9999),
+          email,
+          password,
+        } as User;
+        users.push(user);
+        return Promise.resolve(user);
+      },
     };
 
     const module = await Test.createTestingModule({
@@ -57,5 +66,24 @@ describe('AuthService', () => {
 
   it('should throws if signin is called with an unused email', async () => {
     await expect(service.signin('', '')).rejects.toThrow(NotFoundException);
+  });
+
+  it('throws an error if an invalid password is provided', async () => {
+    fakeUsersService.find = () =>
+      Promise.resolve([
+        {
+          id: 1,
+          email: 'email@email.com',
+          password: 'password',
+        } as User,
+      ]);
+    await expect(service.signin('', '')).rejects.toThrow(BadRequestException);
+  });
+
+  it('returns a user if correct password is provided', async () => {
+    await service.signup('email', 'password');
+
+    const returnedUser = await service.signin('email', 'password');
+    expect(returnedUser).toBeDefined();
   });
 });
