@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
-const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session'); // cookie-session is a middleware to handle cookies in express
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
