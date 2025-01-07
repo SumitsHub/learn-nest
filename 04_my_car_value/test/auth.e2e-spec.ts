@@ -18,16 +18,18 @@ describe('Authentication System', () => {
   });
 
   it('handles signup request ', () => {
+    const email = 'test@test.com';
+
     return request(app.getHttpServer())
       .post('/auth/signup')
       .send({
-        email: 'test23@test.com',
+        email,
         password: 'password',
       })
       .expect(201)
       .then((response) => {
         expect(response.body.id).toBeDefined();
-        expect(response.body.email).toEqual('test23@test.com');
+        expect(response.body.email).toEqual(email);
       });
   });
 });
