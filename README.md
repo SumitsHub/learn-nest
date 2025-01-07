@@ -119,4 +119,20 @@ NOTE: In this app, initially we will use TypeORM with SQLite then will move to P
 npm install @nestjs/config
 
 ```
+
 - Remember: '@nestjs/common' & '@nestjs/core'
+
+### Specifying the Runtime environment
+
+- Install 'cross-env' package
+
+```bash
+npm install cross-env
+```
+
+- Setup variable (ex: setting up NODE_ENV)
+
+```json
+"start": "cross-env NODE_ENV=dev nest start",
+```
+- Now this variable can be accessed using 'process.env.NODE_ENV'
