@@ -59,4 +59,14 @@ describe('UsersController', () => {
     fakeUsersService.findOne = () => null;
     await expect(controller.findUser('1')).rejects.toThrow(NotFoundException);
   });
+
+  test('signin updates session object and returns user', async () => {
+    const session = { userId: -10 };
+    const user = await controller.signin(
+      { email: 'a', password: 'a' },
+      session,
+    );
+    expect(user.id).toEqual(1);
+    expect(session.userId).toEqual(1);
+  });
 });
