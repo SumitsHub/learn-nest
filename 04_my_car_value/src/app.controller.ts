@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
+// @Controller() decorator is used to define a controller class in NestJS and takes a string argument that represents the base route for all routes defined in the controller
 @Controller()
 export class AppController {
   // inject the AppService into the AppController - dependency injection

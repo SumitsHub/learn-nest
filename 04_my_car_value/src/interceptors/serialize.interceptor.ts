@@ -9,22 +9,26 @@ import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
 // import { UserDto } from 'src/users/dtos/user.dto';
 
-//* Accept any class
-interface ClassConstructor {
-  new (...args: any): {};
-}
+//* type to accept any class
+// interface ClassConstructor {
+//   new (...args: any): {};
+// }
+// using different syntax for the same thing
+type ClassConstructor = new (...args: any) => {}; 
+// new - constructor function, 
+// ...args - rest parameter to accept any number of arguments, 
+// {}: {} - return type of the constructor function is an object
 
 export function Serialize(dto: ClassConstructor) {
   return UseInterceptors(new SerializeInterceptor(dto));
 }
 
 export class SerializeInterceptor implements NestInterceptor {
-
-  constructor(private dto: any) {}
+  constructor(private readonly dto: any) {}
 
   intercept(
     context: ExecutionContext,
-    next: CallHandler<any>,
+    next: CallHandler<any>, // CallHandler is a class that provides a handle() method to continue the execution chain and return an Observable
   ): Observable<any> | Promise<Observable<any>> {
     // Run something before a request is handled by the request handler
     // console.log('I am running before the handler', context);

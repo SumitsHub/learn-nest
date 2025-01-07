@@ -12,7 +12,7 @@ const cookieSession = require('cookie-session');
 
 // AppModule is a class that represents the root module of the application and is decorated with the @Module decorator
 // The @Module decorator takes a configuration object with the following properties:
-// imports: an array of modules that are imported by the module
+// imports: an array of modules that are imported by the module and can be used in the module (e.g., TypeOrmModule, UsersModule)
 // controllers: an array of controllers that are part of the module
 // providers: an array of providers that are available in the module and can be injected into other classes
 // exports: an array of providers that are exported from the module and can be used in other modules

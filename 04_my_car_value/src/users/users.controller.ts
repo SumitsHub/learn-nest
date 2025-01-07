@@ -25,12 +25,21 @@ import { CurrentUser } from './decorators/current-user';
 import { User } from './user.entity';
 import { UserGuard } from './guards/user';
 
-@Controller('auth')
+// Parameter decorators used in this file:
+// @Body() - extract the entire body of the request
+// @Param() - extract a single parameter from the route
+// @Query() - extract query parameters from the request
+// @Session() - extract session data from the request
+// @CurrentUser() - extract the current user from the request
+// @UseGuards() - apply guards to the route
+
+
+@Controller('auth') // Prefixing all routes with /auth (e.g., /auth/signup, /auth/signin)
 @Serialize(UserDto) // Using custom decorator to serialize response data
 export class UsersController {
   constructor(
-    private userService: UsersService,
-    private authService: AuthService,
+    private readonly userService: UsersService,
+    private readonly authService: AuthService,
   ) {}
 
   @Post('/signup')
@@ -49,7 +58,7 @@ export class UsersController {
 
   // Using custom decorator
   @Get('/whoami2')
-  @UseGuards(UserGuard)
+  @UseGuards(UserGuard) // Applying guard to the route - used to protect the route from unauthorized access
   whoAmI2(@CurrentUser() user: User) {
     return user;
   }
@@ -67,7 +76,7 @@ export class UsersController {
     session.userId = null;
   }
 
-  // @UseInterceptors(new SerializeInterceptor(UserDto))
+  // @UseInterceptors(new SerializeInterceptor(UserDto)) - used to serialize response data using custom interceptor, replaced with @Serialize decorator above
   @Get('/:id')
   async findUser(@Param('id') id: string) {
     console.log('Handler is running');
