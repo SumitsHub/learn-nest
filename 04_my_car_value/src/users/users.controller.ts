@@ -23,7 +23,7 @@ import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user';
 import { User } from './user.entity';
-import { UserGuard } from './guards/user';
+import { UserGuard } from '../guards/user';
 
 // Parameter decorators used in this file:
 // @Body() - extract the entire body of the request
