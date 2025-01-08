@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Report } from './report.entity';
 import { CreateReportDto } from './dtos/create-report.dto';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class ReportsService {
@@ -10,9 +11,11 @@ export class ReportsService {
     @InjectRepository(Report) private readonly repo: Repository<Report>,
   ) {}
 
-  create(reportDto: CreateReportDto) {
-    const user = this.repo.create(reportDto);
+  create(reportDto: CreateReportDto, user: User) {
+    const report = this.repo.create(reportDto);
 
-    return this.repo.save(user);
+    report.user = user; // this is how we associate a report with a user, behind the scenes it sets the user_id column
+
+    return this.repo.save(report);
   }
 }

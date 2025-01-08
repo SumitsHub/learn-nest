@@ -22,7 +22,7 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany(() => Report, (report) => report.user)
+  @OneToMany(() => Report, (report) => report.user) // () => Report - used callback as first argument because of circular dependency
   reports: Report[];
 
   @AfterInsert()
