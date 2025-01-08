@@ -35,3 +35,14 @@ npm install cookie-session @types/cookie-session
 ### CurrenUser Parameter Decorator
 - Param decorator exist outside of the DI system, so we can't get an UserService instance directly
 - Controller, Service, Repository are part of the DI
+
+
+### Associations in Nest
+- Types of associations:
+  - One-to-one
+  - Ont-to-many
+  - Many-to-one
+  - Many-to-many
+- Decorators from 'typeorm' - used while defining the entity
+  - @OneToMany
+  - @ManyToOne
