@@ -14,7 +14,7 @@ POST http://localhost:3000/auth/signin
 content-type: application/json
 
 {
-    "email": "test@xyz.com",
+    "email": "test@test.com",
     "password": "1234"
 }
 
@@ -25,7 +25,7 @@ GET http://localhost:3000/auth/whoami
 GET http://localhost:3000/auth/whoami2
 
 ### Sign out user
-POST http://localhost:3000/auth/signout
+GET http://localhost:3000/auth/signout
 
 ### Find a particular user with a given ID
 
