@@ -22,6 +22,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: true }) // for testing purposes we set default to true
+  isAdmin: boolean;
+
   @OneToMany(() => Report, (report) => report.user) // () => Report - used callback as first argument because of circular dependency
   reports: Report[];
 
