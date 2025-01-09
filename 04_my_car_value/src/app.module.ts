@@ -51,6 +51,7 @@ const cookieSession = require('cookie-session');
     {
       provide: APP_PIPE, // global pipe for validation - earlier we were using it in main.ts
       useValue: new ValidationPipe({
+        // 'ValidationPipe' is a built-in pipe that validates request payloads using class-validator and class-transformer libraries - it is used to validate the request body based on the DTO class
         whitelist: true, // remove extra fields from request body which are not part of DTO
       }),
     },
@@ -58,6 +59,7 @@ const cookieSession = require('cookie-session');
 })
 export class AppModule {
   // applying middleware globally - earlier we were using it in main.ts
+  // 'configure' method is used to apply middleware to routes - in this case, we are applying the cookie-session middleware to all routes
   // 'MiddlewareConsumer' is a class that exposes the apply method to apply middleware to routes
   configure(consumer: MiddlewareConsumer) {
     consumer
