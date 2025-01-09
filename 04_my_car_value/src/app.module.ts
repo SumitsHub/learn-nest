@@ -30,7 +30,7 @@ const cookieSession = require('cookie-session');
       useFactory: (configService: ConfigService) => ({
         // use a factory function to return the database configuration
         type: 'sqlite',
-        database: configService.get('DATABASE_NAME'), // use the ConfigService to access the DATABASE_NAME environment variable
+        database: configService.get<string>('DATABASE_NAME'), // use the ConfigService to access the DATABASE_NAME environment variable
         entities: [User, Report],
         synchronize: true, //* don't set to true for 'PRODUCTION' (use MIGRATION), this will create the tables in the database based on the entity classes and modify the schema if the entity classes change
       }),
