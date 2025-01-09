@@ -32,7 +32,7 @@ const cookieSession = require('cookie-session');
         type: 'sqlite',
         database: configService.get('DATABASE_NAME'), // use the ConfigService to access the DATABASE_NAME environment variable
         entities: [User, Report],
-        synchronize: true, //* don't set to true for 'PRODUCTION' (use MIGRATION)
+        synchronize: true, //* don't set to true for 'PRODUCTION' (use MIGRATION), this will create the tables in the database based on the entity classes and modify the schema if the entity classes change
       }),
     }),
     UsersModule,
@@ -58,6 +58,9 @@ const cookieSession = require('cookie-session');
   ],
 })
 export class AppModule {
+  // using DI to inject the ConfigService into the constructor
+  constructor(private readonly configService: ConfigService) {}
+
   // applying middleware globally - earlier we were using it in main.ts
   // 'configure' method is used to apply middleware to routes - in this case, we are applying the cookie-session middleware to all routes
   // 'MiddlewareConsumer' is a class that exposes the apply method to apply middleware to routes
@@ -65,7 +68,7 @@ export class AppModule {
     consumer
       .apply(
         cookieSession({
-          keys: ['my-cookie-key'],
+          keys: [this.configService.get('COOKIE_KEY')],
         }),
       )
       .forRoutes('*'); // apply the cookie-session middleware to all routes
