@@ -61,3 +61,8 @@ npm install cookie-session @types/cookie-session
 ```
 
 - Circular dependency: User entity has a relation to Report entity, and Report entity has a relation to User entity. To resolve this, we use a callback function in the @OneToMany() decorator to avoid a circular dependency.
+
+
+### Middleware, Guards and Interceptors
+
+Request -> Middleware (Cookie-Session) -> Guard (AdminGuard) -> Interceptor (CurrentUser) -> Request Handler -> Interceptor (CurrentUser) -> Response
