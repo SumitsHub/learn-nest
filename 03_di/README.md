@@ -11,8 +11,9 @@
 2. Import the PowerModule into the CPUModule -> list of 'imports'
 3. Define the constructor method on CPUService and add PowerService to it
 
-NOTE: By default Services are private to respective modules unless exported explicitly for module
-
+NOTE: 
+- By default Services are private to respective modules unless exported explicitly for module
+- We export Service class whereas while importing we import Module class
 
 ### Docker for Nest App
 1. Create a Dockerfile - The Dockerfile defines the instructions for building the Docker image. Place it in the root directory of your NestJS project.
